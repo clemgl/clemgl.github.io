@@ -8,6 +8,25 @@
   <link rel="stylesheet" href="style.css" />
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
+    /* Fond animé en gradient fluide */
+    .animated-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(-45deg, #0f0f0f, #1a1a1a, #2c2c2c, #0f0f0f);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      z-index: -1;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
     /* Intro animation */
     .intro {
       position: fixed;
@@ -34,6 +53,9 @@
   </style>
 </head>
 <body>
+  <!-- Fond animé -->
+  <div class="animated-bg"></div>
+
   <!-- Intro animation -->
   <div class="intro" id="intro">Clemgl</div>
 
@@ -79,7 +101,7 @@
       setTimeout(() => {
         intro.classList.add("fade-out");
         main.style.opacity = 1;
-      }, 2000); // durée de l'animation en ms
+      }, 2000);
     });
   </script>
 </body>
