@@ -1,82 +1,95 @@
 
-/* Style général */
+/* style.css */
+
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-  margin: 0;
-  font-family: 'Helvetica Neue', sans-serif;
-  background-color: #f9f9f9;
-  color: #222;
+  background-color: #0f0f0f;
+  color: #ffffff;
+  font-family: 'Unbounded', sans-serif;
   line-height: 1.6;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
-/* Section hero */
-.hero {
-  padding: 100px 20px;
+header.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  background-color: #ffffff;
+  background-color: #0f0f0f;
 }
 
-.hero h1 {
-  font-size: 4em;
-  margin: 0;
-  font-weight: 700;
+header.hero h1 {
+  font-size: 6rem;
+  letter-spacing: 0.05em;
+  color: #fff;
 }
 
-.hero p {
-  font-size: 1.2em;
-  color: #555;
+header.hero p {
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  color: #aaa;
 }
 
-/* Sections */
 section {
-  padding: 80px 20px;
-  max-width: 1000px;
+  padding: 6rem 2rem;
+  max-width: 1200px;
   margin: auto;
 }
 
 h2 {
-  font-size: 2em;
-  margin-bottom: 20px;
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: #ffffff;
 }
 
-/* Galerie */
-.grid {
+.gallery .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
+  gap: 2rem;
 }
 
-.item img {
+.gallery .item img {
   width: 100%;
   height: auto;
-  border-radius: 10px;
-  transition: transform 0.3s ease;
+  border-radius: 12px;
+  transition: transform 0.4s ease, filter 0.4s ease;
 }
 
-.item img:hover {
-  transform: scale(1.05);
+.gallery .item img:hover {
+  transform: scale(1.03);
+  filter: brightness(1.2);
 }
 
-/* À propos */
-.about p {
-  font-size: 1.1em;
+.about p,
+.contact p {
+  max-width: 700px;
+  margin: auto;
+  font-size: 1.2rem;
+  color: #ccc;
+  text-align: center;
 }
 
-/* Contact */
-.contact a {
-  color: #007acc;
+a {
+  color: #00ffcc;
   text-decoration: none;
-  font-weight: bold;
 }
 
-.contact a:hover {
-  text-decoration: underline;
-}
-
-/* Footer */
 footer {
   text-align: center;
-  padding: 40px 20px;
-  background-color: #eee;
-  font-size: 0.9em;
-  color: #555;
+  padding: 3rem 1rem;
+  color: #888;
+  font-size: 0.9rem;
+  background: #111;
 }
