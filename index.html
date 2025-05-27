@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="style.css" />
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
-    /* Fond animé en gradient fluide */
+    /* Fond animé */
     .animated-bg {
       position: fixed;
       top: 0;
@@ -50,6 +50,23 @@
       opacity: 0;
       pointer-events: none;
     }
+
+    /* Galerie interactive */
+    .gallery .item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+    }
+
+    .gallery .item img {
+      width: 100%;
+      transition: transform 0.5s ease, filter 0.5s ease;
+    }
+
+    .gallery .item:hover img {
+      transform: scale(1.05);
+      filter: brightness(1.2);
+    }
   </style>
 </head>
 <body>
@@ -62,27 +79,27 @@
   <!-- Main content -->
   <div id="main-content" style="opacity:0; transition: opacity 1s ease 0.3s;">
     <header class="hero">
-      <h1 data-aos="fade-up">Clemgl</h1>
-      <p data-aos="fade-up" data-aos-delay="200">Photographe & Créateur visuel</p>
+      <h1 class="animate">Clemgl</h1>
+      <p class="animate">Photographe & Créateur visuel</p>
     </header>
 
-    <section class="gallery" data-aos="fade-up">
-      <h2>Mes projets</h2>
+    <section class="gallery">
+      <h2 class="animate">Mes projets</h2>
       <div class="grid">
-        <div class="item"><img src="https://via.placeholder.com/400x300" alt="Projet 1" /></div>
-        <div class="item"><img src="https://via.placeholder.com/400x300" alt="Projet 2" /></div>
-        <div class="item"><img src="https://via.placeholder.com/400x300" alt="Projet 3" /></div>
+        <div class="item animate"><img src="https://via.placeholder.com/400x300" alt="Projet 1" /></div>
+        <div class="item animate"><img src="https://via.placeholder.com/400x300" alt="Projet 2" /></div>
+        <div class="item animate"><img src="https://via.placeholder.com/400x300" alt="Projet 3" /></div>
       </div>
     </section>
 
-    <section class="about" data-aos="fade-up">
-      <h2>À propos</h2>
-      <p>Je suis passionné par la photographie, l'esthétique, et la lumière naturelle. Mon objectif est de transmettre des émotions à travers l'image.</p>
+    <section class="about">
+      <h2 class="animate">À propos</h2>
+      <p class="animate">Je suis passionné par la photographie, l'esthétique, et la lumière naturelle. Mon objectif est de transmettre des émotions à travers l'image.</p>
     </section>
 
-    <section class="contact" data-aos="fade-up">
-      <h2>Contact</h2>
-      <p>Écrivez-moi à <a href="mailto:contact@clemgl.com">contact@clemgl.com</a></p>
+    <section class="contact">
+      <h2 class="animate">Contact</h2>
+      <p class="animate">Écrivez-moi à <a href="mailto:contact@clemgl.com">contact@clemgl.com</a></p>
     </section>
 
     <footer>
@@ -91,6 +108,7 @@
   </div>
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://unpkg.com/gsap@3.12.2/dist/gsap.min.js"></script>
   <script>
     AOS.init();
 
@@ -101,6 +119,15 @@
       setTimeout(() => {
         intro.classList.add("fade-out");
         main.style.opacity = 1;
+
+        // Animation GSAP après l'intro
+        gsap.from(".animate", {
+          opacity: 0,
+          y: 40,
+          duration: 1,
+          stagger: 0.2,
+          ease: "power2.out"
+        });
       }, 2000);
     });
   </script>
