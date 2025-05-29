@@ -8,7 +8,6 @@
   <link rel="stylesheet" href="style.css" />
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
-    /* Fond animé */
     .animated-bg {
       position: fixed;
       top: 0;
@@ -27,7 +26,6 @@
       100% { background-position: 0% 50%; }
     }
 
-    /* Intro animation */
     .intro {
       position: fixed;
       top: 0;
@@ -51,11 +49,11 @@
       pointer-events: none;
     }
 
-    /* Galerie interactive */
     .gallery .item {
       position: relative;
       overflow: hidden;
       border-radius: 12px;
+      will-change: transform;
     }
 
     .gallery .item img {
@@ -70,13 +68,9 @@
   </style>
 </head>
 <body>
-  <!-- Fond animé -->
   <div class="animated-bg"></div>
-
-  <!-- Intro animation -->
   <div class="intro" id="intro">Clemgl</div>
 
-  <!-- Main content -->
   <div id="main-content" style="opacity:0; transition: opacity 1s ease 0.3s;">
     <header class="hero">
       <h1 class="animate">Clemgl</h1>
@@ -86,9 +80,9 @@
     <section class="gallery">
       <h2 class="animate">Mes projets</h2>
       <div class="grid">
-        <div class="item animate"><img src="https://via.placeholder.com/400x300" alt="Projet 1" /></div>
-        <div class="item animate"><img src="https://via.placeholder.com/400x300" alt="Projet 2" /></div>
-        <div class="item animate"><img src="https://via.placeholder.com/400x300" alt="Projet 3" /></div>
+        <div class="item animate tilt" data-tilt><img src="https://via.placeholder.com/400x300" alt="Projet 1" /></div>
+        <div class="item animate tilt" data-tilt><img src="https://via.placeholder.com/400x300" alt="Projet 2" /></div>
+        <div class="item animate tilt" data-tilt><img src="https://via.placeholder.com/400x300" alt="Projet 3" /></div>
       </div>
     </section>
 
@@ -109,10 +103,11 @@
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="https://unpkg.com/gsap@3.12.2/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.1/dist/vanilla-tilt.min.js"></script>
   <script>
     AOS.init();
 
-    // Intro animation logic
+    // Intro + animations GSAP
     window.addEventListener("load", () => {
       const intro = document.getElementById("intro");
       const main = document.getElementById("main-content");
@@ -120,13 +115,19 @@
         intro.classList.add("fade-out");
         main.style.opacity = 1;
 
-        // Animation GSAP après l'intro
         gsap.from(".animate", {
           opacity: 0,
           y: 40,
           duration: 1,
           stagger: 0.2,
           ease: "power2.out"
+        });
+
+        VanillaTilt.init(document.querySelectorAll(".tilt"), {
+          max: 8,
+          speed: 400,
+          glare: true,
+          "max-glare": 0.15
         });
       }, 2000);
     });
