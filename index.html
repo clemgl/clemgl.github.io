@@ -2,16 +2,57 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio - Clemgl</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <title>ClemG_L - Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #111;
+      color: #fff;
+      text-align: center;
+    }
+    .cover {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(to bottom right, #1a1a1a, #333);
+    }
+    .cover h1 {
+      font-size: 4rem;
+      margin: 0;
+    }
+    .gallery {
+      padding: 40px;
+      background: #000;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+    .gallery img {
+      width: 100%;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+  </style>
 </head>
 <body>
-  <h1>Galerie Clemgl</h1>
-  <div class="gallery">
-    <img src="images/DSCF1616.JPG" alt="Projet 1" style="width:300px;" />
-    <img src="images/DSCF1623.JPG" alt="Projet 2" style="width:300px;" />
-  </div>
+
+  <section class="cover">
+    <h1>ClemG_L</h1>
+    <p>Photographe & Créateur visuel</p>
+  </section>
+
+  <section class="gallery">
+    <img src="images/DSCF1616.JPG" alt="Projet 1">
+    <img src="images/DSCF1623.JPG" alt="Projet 2">
+  </section>
+
 </body>
 </html>
